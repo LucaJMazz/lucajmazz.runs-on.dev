@@ -1,0 +1,10 @@
+{
+  "description": "A responsive dashboard with a floating navigation bar that keeps key tools and information easy to access while you work.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Modak&display=swap");
+@import "tailwindcss";
+
+:root {
+  color: #f0f1f4;
+  background: #1c2021;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    min-width: 320px;
+    min-height: 100dvh;
+    background-color: #1c2021;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.site-shell {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(20, 24, 25, 0.3), rgba(20, 24, 25, 0.3)),
+    url("/assets/grid-texture.png") repeat,
+    #1c2021;
+  background-size:
+    auto,
+    316px 480px,
+    auto;
+}
+
+.site-shell::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 35%, transparent 20%, rgba(8, 10, 11, 0.2) 100%);
+}
+
+.floating-nav {
+  position: fixed;
+  z-index: 20;
+  top: 55px;
+  left: 50%;
+  display: flex;
+  width: min(calc(100% - 132px), 1378px);
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 22px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(117, 117, 119, 0.58);
+  border-radius: 999px;
+  background: rgba(22, 22, 22, 0.87);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 13px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.brand-link,
+.github-link {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  transition:
+    transform 160ms ease,
+    filter 160ms ease;
+}
+
+.brand-link {
+  width: 57px;
+  height: 57px;
+  overflow: hidden;
+  border: 4px solid #050507;
+  background: #a6a8b2;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+
+.brand-link img {
+  width: 55px;
+  height: 55px;
+  transform: scale(1.19);
+  object-fit: cover;
+}
+
+.github-link {
+  width: 57px;
+  height: 57px;
+  background: #050507;
+}
+
+.github-link img {
+  width: 43px;
+  height: 43px;
+  filter: invert(76%) sepia(7%) saturate(496%) hue-rotate(200deg) brightness(91%);
+}
+
+.brand-link:hover,
+.github-link:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.brand-link:focus-visible,
+.github-link:focus-visible {
+  outline: 2px solid #f0f1f4;
+  outline-offset: 4px;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 1794px;
+  padding: 185px 0 26px;
+}
+
+.intro-panel {
+  box-sizing: border-box;
+  width: min(calc(100% - 270px), 1242px);
+  height: 350px;
+  margin: 0 auto;
+  padding: 31px 58px;
+  border: 1px solid #77797b;
+  border-radius: 56px;
+  background: #232526;
+}
+
+.intro-panel h1 {
+  margin: 0;
+  font-family: "Modak", sans-serif;
+  font-size: 78px;
+  font-weight: 400;
+  line-height: 0.97;
+  letter-spacing: 0.3px;
+}
+
+.domain {
+  margin: 2px 0 0;
+  font-size: 63px;
+  line-height: 1.12;
+  letter-spacing: 0.3px;
+}
+
+.tagline {
+  margin: 46px 0 0;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+}
+
+.dashboard-panel {
+  box-sizing: border-box;
+  width: min(calc(100% - 328px), 1184px);
+  height: 522px;
+  margin: 53px auto 0;
+  padding: 18px 29px;
+  border: 1px solid #8b8c8d;
+  border-radius: 29px;
+  background: #38393a;
+}
+
+.dashboard-panel h2 {
+  margin: 0;
+  font-size: 37px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.project-grid {
+  display: grid;
+  width: min(calc(100% - 184px), 1328px);
+  margin: 100px auto 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px;
+}
+
+.project-card {
+  box-sizing: border-box;
+  min-width: 0;
+  height: 558px;
+  padding: 20px 20px 19px;
+  overflow: hidden;
+  border: 1px solid #88898a;
+  border-radius: 30px;
+  background: #38393a;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #b3b4b5;
+}
+
+.project-preview {
+  width: 100%;
+  height: 364px;
+  border-radius: 15px;
+  background: #fdfdfd;
+  box-shadow: inset 0 9px 16px rgba(0, 0, 0, 0.24);
+}
+
+.project-copy {
+  padding: 25px 8px 0;
+}
+
+.project-copy h3 {
+  margin: 0;
+  font-size: 39px;
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -1.7px;
+  white-space: nowrap;
+}
+
+.project-copy p {
+  max-width: 550px;
+  margin: 8px 0 0;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: 0.1px;
+}
+
+@media (max-width: 1100px) {
+  .floating-nav {
+    top: 30px;
+    width: calc(100% - 56px);
+  }
+
+  main {
+    min-height: 100dvh;
+    padding-top: 150px;
+  }
+
+  .intro-panel,
+  .dashboard-panel,
+  .project-grid {
+    width: calc(100% - 80px);
+  }
+
+  .intro-panel {
+    height: auto;
+    min-height: 300px;
+  }
+
+  .intro-panel h1 {
+    font-size: clamp(56px, 8vw, 78px);
+  }
+
+  .domain {
+    font-size: clamp(45px, 6vw, 63px);
+  }
+
+  .tagline {
+    font-size: clamp(27px, 3.7vw, 40px);
+  }
+
+  .project-grid {
+    gap: 32px;
+  }
+
+  .project-copy h3 {
+    font-size: clamp(25px, 3vw, 39px);
+  }
+}
+
+@media (max-width: 720px) {
+  .floating-nav {
+    top: 16px;
+    width: calc(100% - 32px);
+    height: 64px;
+    padding: 0 10px 0 12px;
+  }
+
+  .brand-link,
+  .github-link {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand-link img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .github-link img {
+    width: 35px;
+    height: 35px;
+  }
+
+  main {
+    padding: 104px 16px 32px;
+  }
+
+  .intro-panel,
+  .dashboard-panel,
+  .project-grid {
+    width: 100%;
+  }
+
+  .intro-panel {
+    min-height: 260px;
+    padding: 30px 25px;
+    border-radius: 35px;
+  }
+
+  .intro-panel h1 {
+    font-size: clamp(48px, 15vw, 68px);
+  }
+
+  .domain {
+    font-size: clamp(35px, 10.5vw, 50px);
+  }
+
+  .tagline {
+    margin-top: 38px;
+    font-size: clamp(21px, 6vw, 29px);
+  }
+
+  .dashboard-panel {
+    height: 390px;
+    margin-top: 34px;
+    padding: 18px 22px;
+    border-radius: 24px;
+  }
+
+  .dashboard-panel h2 {
+    font-size: 31px;
+  }
+
+  .project-grid {
+    margin-top: 52px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .project-card {
+    height: auto;
+    min-height: 480px;
+    padding: 16px 16px 24px;
+    border-radius: 25px;
+  }
+
+  .project-preview {
+    height: min(65vw, 350px);
+  }
+
+  .project-copy {
+    padding: 23px 6px 0;
+  }
+
+  .project-copy h3 {
+    font-size: clamp(27px, 8.5vw, 38px);
+  }
+
+  .project-copy p {
+    font-size: 18px;
+  }
+}
